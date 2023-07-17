@@ -1,8 +1,8 @@
 <script>
-    import {setContext} from 'svelte'
+    import { setContext } from 'svelte'
     import { projKey } from "./context.js";
     import { geoEqualEarth } from "d3-geo";
-    import {writable} from 'svelte/store';
+    import { writable } from 'svelte/store';
 
 	/**
      * @type {?any} map
