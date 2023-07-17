@@ -11,13 +11,9 @@
    */
   export let id;
 
-  import { onDestroy, getContext, setContext } from "svelte";
-  import { mapKey, markerKey } from "./context.js";
+  import { onDestroy, getContext } from "svelte";
+  import { mapKey } from "./context.js";
   import mapboxgl from "mapbox-gl";
-
-  setContext(markerKey, {
-    getMarker: () => marker,
-  });
 
   const mapContext = getContext(mapKey);
   const map = mapContext.getMap();

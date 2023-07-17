@@ -1,16 +1,31 @@
 <script>
-  import Map from "./OpenLayers/Map.svelte";
-  // import Marker from "./MapBox/Marker.svelte";
+  import Map from "./D3/Map.svelte";
+  import Marker from "./D3/Marker.svelte";
+  import Polygon from "./D3/Polygon.svelte";
   import { loaded, locations } from "../../stores/locations";
+  import {onMount} from 'svelte';
+
+  /**
+   * @type {?any} pathGeom
+   */
+  let pathGeoms;
+
+  onMount(async()=>{
+    pathGeoms = await fetch('http://localhost:5174/src/lib/data/brandenburg-84.geojson')
+			.then(d => d.json());
+  });
 </script>
 
-<!--<Map>
+<Map>
   {#if $loaded && $locations}
-  {#each $locations as l, li}
-    <Marker coordinates={l.coordinates} id={li} />
-  {/each}
+    {#if pathGeoms}
+      <Polygon coordinates={pathGeoms} />
+    {/if}
+    {#each $locations as l, li}
+      <Marker coordinates={l.coordinates} id={li} />
+    {/each}
   {/if}
-</Map>-->
+</Map>
 
-<Map />
+<!-- <Map /> -->
 
