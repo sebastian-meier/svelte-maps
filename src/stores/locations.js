@@ -1,4 +1,5 @@
 import { writable, derived } from "svelte/store";
+import { PUBLIC_DATA_PATH } from '$env/static/public';
 
 /**
  * @typedef {Object} BathLocation
@@ -67,7 +68,7 @@ export const loaded = writable(false);
  */
 export const locations = writable(null);
 
-fetch("http://localhost:5173/src/lib/data/bathing-spots.geojson")
+fetch(PUBLIC_DATA_PATH + "bathing-spots.geojson")
   .then((res) => res.json())
   .then((data) => {
     locations.set(data);
