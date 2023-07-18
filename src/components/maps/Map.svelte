@@ -4,14 +4,15 @@
   import Polygon from "./D3/Polygon.svelte";
   import { loaded, locations } from "../../stores/locations";
   import {onMount} from 'svelte';
+  import { PUBLIC_DATA_PATH } from '$env/static/public';
 
   /**
    * @type {?any} pathGeom
    */
   let pathGeoms;
 
-  onMount(async()=>{
-    pathGeoms = await fetch('https://fhpcloud.fh-potsdam.de/s/xwZgpNdT8pDix8z/download/brandenburg-84.geojson', { mode: 'no-cors'})
+  onMount(async () => {
+    pathGeoms = await fetch(PUBLIC_DATA_PATH + 'brandenburg-84.geojson')
 			.then(d => d.json());
   });
 </script>
