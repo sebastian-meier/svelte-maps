@@ -67,7 +67,7 @@ export const loaded = writable(false);
  */
 export const locations = writable(null);
 
-fetch("http://localhost:5173/src/lib/data/bathing-spots.geojson")
+fetch("https://fhpcloud.fh-potsdam.de/s/67yo4gRFEEx55X4/download/bathing-spots.geojson", { mode: 'no-cors'})
   .then((res) => res.json())
   .then((data) => {
     locations.set(data);

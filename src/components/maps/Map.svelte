@@ -1,5 +1,5 @@
 <script>
-  import Map from "./D3/Map.svelte";
+  import Map from "./OpenLayers/Map.svelte";
   import Marker from "./D3/Marker.svelte";
   import Polygon from "./D3/Polygon.svelte";
   import { loaded, locations } from "../../stores/locations";
@@ -11,12 +11,12 @@
   let pathGeoms;
 
   onMount(async()=>{
-    pathGeoms = await fetch('http://localhost:5174/src/lib/data/brandenburg-84.geojson')
+    pathGeoms = await fetch('https://fhpcloud.fh-potsdam.de/s/xwZgpNdT8pDix8z/download/brandenburg-84.geojson', { mode: 'no-cors'})
 			.then(d => d.json());
   });
 </script>
 
-<Map>
+<!--<Map>
   {#if $loaded && $locations}
     {#if pathGeoms}
       <Polygon coordinates={pathGeoms} />
@@ -25,7 +25,7 @@
       <Marker coordinates={l.coordinates} id={li} />
     {/each}
   {/if}
-</Map>
+</Map>-->
 
-<!-- <Map /> -->
+<Map />
 

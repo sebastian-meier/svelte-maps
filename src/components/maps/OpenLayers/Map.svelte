@@ -16,6 +16,8 @@
   import Icon from 'ol/style/Icon'
   import { fromLonLat } from 'ol/proj'
   import { locations, currentLocationID } from '../../../stores/locations.js'
+  import defaultMarkerSrc from '$lib/images/default-marker.png';
+  import activeMarkerSrc from '$lib/images/active-marker.png';
 
   /**
    * @type {?any} map
@@ -69,7 +71,7 @@
       anchor: [10, 10],
       anchorXUnits: 'pixels',
       anchorYUnits: 'pixels',
-      src: '/src/lib/images/default-marker.png',
+      src: defaultMarkerSrc,
       imgSize: [20, 20]
     }),
   });
@@ -79,7 +81,7 @@
       anchor: [10, 10],
       anchorXUnits: 'pixels',
       anchorYUnits: 'pixels',
-      src: '/src/lib/images/active-marker.png',
+      src: activeMarkerSrc,
       imgSize: [20, 20]
     }),
   });
