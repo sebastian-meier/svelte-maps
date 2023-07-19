@@ -10,8 +10,16 @@
   const mapContext = getContext(mapKey);
   const map = mapContext.getMap();
 
+  /**
+   * @type {HTMLCanvasElement} canvasElement
+   */
   let canvasElement;
+
+  /**
+   * @type {any} deck
+   */
   let deck = null;
+
   let scatterlayer = null;
 
   let viewState = {};
