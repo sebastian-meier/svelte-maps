@@ -3,7 +3,7 @@
   import { Deck } from "@deck.gl/core";
   import { ScatterplotLayer } from "@deck.gl/layers";
 
-  import { onDestroy, getContext } from "svelte";
+  import { getContext } from "svelte";
   import { mapKey } from "../MapBox/context.js";
 	import { currentLocationID, loaded, locations } from "../../../stores/locations.js";
 
