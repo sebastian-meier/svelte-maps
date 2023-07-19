@@ -1,10 +1,12 @@
 <script>
-  import Map from "./OpenLayers/Map.svelte";
+  import Map from "./MapBox/Map.svelte";
+  import Deck from "./Deckgl/Deckgl.svelte";
   import Marker from "./D3/Marker.svelte";
   import Polygon from "./D3/Polygon.svelte";
   import { loaded, locations } from "../../stores/locations";
   import {onMount} from 'svelte';
   import { PUBLIC_DATA_PATH } from '$env/static/public';
+	import Deckgl from "./Deckgl/Deckgl.svelte";
 
   /**
    * @type {?any} pathGeom
@@ -28,5 +30,7 @@
   {/if}
 </Map>-->
 
-<Map />
+<Map>
+  <Deckgl />
+</Map>
 
