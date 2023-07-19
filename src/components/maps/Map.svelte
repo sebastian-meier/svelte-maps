@@ -1,7 +1,7 @@
 <script>
-  import Map from "./MapBox/Map.svelte";
+  import Map from "./MapLibre/Map.svelte";
   import Deck from "./Deckgl/Deckgl.svelte";
-  import Marker from "./D3/Marker.svelte";
+  import Marker from "./MapLibre/Marker.svelte";
   import Polygon from "./D3/Polygon.svelte";
   import { loaded, locations } from "../../stores/locations";
   import {onMount} from 'svelte';
@@ -19,18 +19,18 @@
   });
 </script>
 
-<!--<Map>
+<Map>
   {#if $loaded && $locations}
-    {#if pathGeoms}
+    <!--{#if pathGeoms}
       <Polygon coordinates={pathGeoms} />
-    {/if}
+    {/if}-->
     {#each $locations as l, li}
       <Marker coordinates={l.coordinates} id={li} />
     {/each}
   {/if}
-</Map>-->
-
-<Map>
-  <Deckgl />
 </Map>
+
+<!--<Map>
+  <Deckgl />
+</Map>-->
 
