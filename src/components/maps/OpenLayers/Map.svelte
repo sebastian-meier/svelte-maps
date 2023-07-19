@@ -1,8 +1,4 @@
 <script>
-  /*
-   * https://openlayers.org/en/latest/examples/mapbox-vector-tiles.html
-   * https://github.com/Wildsong/svelte-maps/blob/main/src/olmap.svelte
-   */
   import {onMount, onDestroy, setContext} from 'svelte'
   import Map from 'ol/Map'
   import View from 'ol/View'
@@ -49,7 +45,7 @@
   $: {
     if (markerSource && activeSource && $locations) {
       markerSource.clear();
-      markerSource.addFeatures($locations.filter((l, li) => li !== $currentLocationID).map(featureTransformer));
+      markerSource.addFeatures($locations?.map(featureTransformer));
       markerLayer?.changed();
 
       activeSource.clear();
@@ -88,7 +84,7 @@
 
   onMount(async()=>{
     markerSource = new VectorSource({
-      features: ($locations || []).filter((l, li) => li !== $currentLocationID).map(featureTransformer)
+      features: $locations?.map(featureTransformer)
     });
 
     markerLayer = new VectorLayer({

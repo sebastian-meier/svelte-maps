@@ -3,7 +3,7 @@
 </script>
 
 <div>
-  <table>
+  <table cellpadding="0" cellspacing="0">
     <thead>
       <tr>
         <th>Rating</th>
@@ -34,13 +34,46 @@
 </div>
 
 <style lang="scss">
-  tr.selected {
-    background-color: rgb(75, 75, 75);
+  table {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  thead, tfoot{
+    background-color: rgb(100, 100, 100);
     color: white;
+    font-weight:bold;
+    text-align:left;
+  }
+
+  table, tr, td, th, thead, tfoot{
+    padding:0;
+    margin:0;
+    border:none;
+  }
+
+  td{
+    border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+  }
+
+  td, th{
+    padding: 2px 5px;
+  }
+
+  tr:hover {
+    background-color: rgba(100, 100, 100, 0.15);
+  }
+
+  tr.selected {
+    background-color: rgba(100, 100, 100, 0.3);
   }
 
   div {
     overflow: scroll;
     flex-grow: 1;
+  }
+
+  tr{
+    cursor: pointer;
   }
 </style>

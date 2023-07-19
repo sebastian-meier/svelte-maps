@@ -21,3 +21,7 @@ html, body {
 	width: 100%;
 	border: none;
 }
+
+#sidebar>div:first-child {
+	border-bottom: 1px solid rgb(100, 100, 100);
+}
